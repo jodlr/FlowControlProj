@@ -1,0 +1,119 @@
+package com.tts;
+import java.util.Scanner;
+
+
+public class Main {
+    public static final int MAGIC_NUMBER = 75;
+    public static void main(String[] args) {
+        AsciiChars AsciiChars = new AsciiChars();
+        AsciiChars.printNumbers();
+        AsciiChars.printLowerCaseLetters();;
+        AsciiChars.printUpperCaseLetters();
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Please enter your name: ");
+        String userName = scanner.nextLine();
+        System.out.println("Hello," + userName);
+
+
+        char myChar = 'y';
+
+        System.out.print("Would like to continue to the survey(y/n): ");
+        String input = scanner.next();
+        myChar = input.charAt(0);
+        if (myChar == 'y') {
+            while (myChar != 'n' && myChar != 'N') {
+                System.out.println("Do you have a red car? (y/n):");
+                String carColor = scanner.next();
+                char isRed = carColor.charAt(0);
+                System.out.println("What is the name of your favorite pet:");
+                String petName = scanner.next();
+                String myPet = petName;
+
+                System.out.println("How old is " + myPet + ":");
+                String petAge = scanner.next();
+                int petA = Integer.parseInt(petAge);
+                //System.out.println("My pet is " + petAge + "years old");
+
+                System.out.println("What is your lucky number?:");
+                String luckyNum = scanner.next();
+                int luckyI = Integer.parseInt(luckyNum);
+                //System.out.println(luckyNum);
+
+                System.out.println("Do they have a favorite quarterback?  If so what is their jersey number?  \n");
+                String qbNum = scanner.next();
+                int qbn = Integer.parseInt(qbNum);
+                //System.out.println("QB Number:" + qbNum);
+
+                System.out.println("What is two-digit model year of your car?");
+                String modYear = scanner.next();
+                int year = Integer.parseInt(modYear);
+                //System.out.println(modYear);
+
+                System.out.println("What is the first name of your favorite actor or actress?");
+                String actName = scanner.next();
+                //System.out.println(actName);
+
+                System.out.println("Enter a random number between 1 and 50:");
+                String rndNum = scanner.next();
+                int rNum = Integer.parseInt(rndNum);
+                //   System.out.println(rndNum);
+
+
+                int magicBall = qbn * rNum;
+                if (magicBall > MAGIC_NUMBER) {
+                    magicBall = magicBall - MAGIC_NUMBER;
+                } else
+                    magicBall = magicBall;
+                int n1 = luckyI + year;
+                int n2 = 42;
+                int n3 = petA + year;
+                int n4 = Math.abs(rNum - luckyI);
+                int n5 = petA + luckyI + qbn;
+                System.out.println("Lottery numbers:" + n1 + "," + n2 + "," + n3 + "," + n4 + "," + n5 + "  Magic ball: " + magicBall);
+
+                myChar = 'n';
+
+             }
+
+            }
+        System.out.println("please return later to complete the survey.  \n");
+    }
+}
+ class AsciiChars {
+
+
+
+    public static void printNumbers() {
+        char ch;
+
+        for (ch = '0'; ch <= '9'; ch++) {
+            int ascii = (int) ch;
+            //System.out.println(ascii);
+            System.out.println("The ASCII value of " + ch + " is: " + ascii);
+        }
+
+    }
+
+     public static void printUpperCaseLetters() {
+         char ch;
+
+         for (ch = 'A'; ch <= 'Z'; ch++) {
+             int ascii = (int) ch;
+             //System.out.println(ascii);
+             System.out.println("The ASCII value of " + ch + " is: " + ascii);
+         }
+     }
+     public static void printLowerCaseLetters() {
+         char ch;
+
+         for (ch = 'a'; ch <= 'z'; ch++) {
+             int ascii = (int) ch;
+             //System.out.println(ascii);
+             System.out.println("The ASCII value of " + ch + " is: " + ascii);
+         }
+     }
+}
+
+
+
